@@ -18,7 +18,6 @@ export class MovieInformationComponent implements OnInit {
   }
 
   refreshMovie(data) {
-    console.log(data);
     this.cMovie = data;
   }
 
