@@ -28,26 +28,35 @@ export class Movie {
     private _poster : string;
     public get poster() : string {return this._poster;}
     public set poster(v : string) {this._poster = v;}
-      
+
     
     constructor(private t:string, private a:string, private pl:string, private g:string, private r:string, private y:string, private p:string) {
-        this._title = t;
-        a.split(',').forEach(fullName => {
-            let fullNameArray:Array<string> = fullName.trim().split(' ');
-            let actor:Actor = new Actor(fullNameArray[0], fullNameArray[1]);
-            if (typeof this._actors == 'undefined') this._actors = new Array<Actor>();
-            this._actors.push(actor);
-        });
+        this.title = t;
+        
+        try {
+            a.split(',').forEach(fullName => {
+                let fullNameArray:Array<string> = fullName.trim().split(' ');
+                let actor:Actor = new Actor(fullNameArray[0], fullNameArray[1]);
+                if (typeof this.actors == 'undefined') this.actors = new Array<Actor>();
+                this.actors.push(actor);
+            });
+        } catch(e) {
+            this.actors = new Array<Actor>();
+        }
 
-        g.split(',').forEach(gen => {
-            if (typeof this._genre == "undefined") this._genre = new Array<string>();
-            this._genre.push(gen.trim());
-        });
+        try {
+            g.split(',').forEach(gen => {
+                if (typeof this.genre == "undefined") this.genre = new Array<string>();
+                this.genre.push(gen.trim());
+            });
+        } catch(e) {
+            this.genre = new Array<string>();
+        }
 
-        this._rating = Number(r);
-        this._year = Number(y);
-        this._poster = p;
-        this._plot = pl;
+        this.rating = Number(r);
+        this.year = Number(y);
+        this.poster = p;
+        this.plot = pl;
 
         delete this.t;
         delete this.a;
