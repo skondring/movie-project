@@ -1,0 +1,6 @@
+.actor-name-container > span::after {
+    content: ', ';
+}
+.actor-name-container > span:last-of-type::after {
+    content: '';
+}

@@ -2,9 +2,9 @@
   <img class="card-img-top" src="{{cMovie.poster}}">
   <div class="card-body">
     <h5 class="card-title">{{cMovie.title}}</h5>
-    <div class="card-text small">
-      <span *ngFor="let actor of cMovie.actors">{{actor.firstName}} {{actor.lastName}} </span>
+    <div class="card-text small actor-name-container">
+      <span *ngFor="let actor of cMovie.actors">{{actor.firstName}} {{actor.lastName}}</span>
     </div>
-    <div class="card-text">{{cMovie.plot}}</div>
+    <div class="card-text" style="margin-top: 1rem;">{{cMovie.plot}}</div>
   </div>
 </div>
